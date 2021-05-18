@@ -6,6 +6,7 @@ var MongoClient = require('mongodb').MongoClient;
 const app = express();
 app.use(express.json()); // parses the json object included in the request body
 var url='mongodb+srv://usertest09:Middlesexuni@cluster0.bcxqd.mongodb.net/userwebbapp?retryWrites=true&w=majority';
+const port = process.env.PORT || 3000
 
 // post route
 app.post('/hello', (req, res) => {
@@ -30,7 +31,8 @@ app.get('/orders', async (req, res) => {
     const orders = await db.collection('orders').find({}).toArray();  
     res.status(200).json(orders);
     client.close();
-});app.post('/orders', (req, res) => {
+});
+app.post('/orders', (req, res) => {
     MongoClient.connect(url, { useUnifiedTopology: true }, function(err, db) {
         if (err) throw err;
         var dbo = db.db("userwebbapp");
@@ -60,6 +62,6 @@ app.put('/lessons/update-lesson',async (req, res) => {
     client.close();
 });
 // set server to listen
-app.listen(8000, () => {
-    console.log('Server is listening on port 8000');
+app.listen(port, () => {
+    console.log('Server is listening');
 })
