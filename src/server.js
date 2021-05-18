@@ -1,5 +1,7 @@
 // import the express framework
 import express from 'express';
+import { createRequire } from 'module';
+const require = createRequire(import.meta.url);
 
 var MongoClient = require('mongodb').MongoClient;
 // create app object
