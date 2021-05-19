@@ -3,6 +3,9 @@ import express from 'express';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 
+// serve the assets directory whenever a request is received on the /images router
+app.use('/images', express.static(path.join(__dirname, '../assets')));
+
 let demoLogger = (req, res, next) => {
     let current_datetime = new Date();
     let formatted_date =
