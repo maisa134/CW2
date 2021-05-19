@@ -3,6 +3,13 @@ import express from 'express';
 import { createRequire } from 'module';
 const require = createRequire(import.meta.url);
 
+var MongoClient = require('mongodb').MongoClient;
+// create app object
+const app = express();
+app.use(express.json()); // parses the json object included in the request body
+var url='mongodb+srv://usertest09:Middlesexuni@cluster0.bcxqd.mongodb.net/userwebbapp?retryWrites=true&w=majority';
+const port = process.env.PORT || 3000
+
 // serve the assets directory whenever a request is received on the /images router
 app.use('/images', express.static(path.join(__dirname, '../assets')));
 
@@ -28,13 +35,6 @@ let demoLogger = (req, res, next) => {
     next();
 };
 app.use(demoLogger);
-
-var MongoClient = require('mongodb').MongoClient;
-// create app object
-const app = express();
-app.use(express.json()); // parses the json object included in the request body
-var url='mongodb+srv://usertest09:Middlesexuni@cluster0.bcxqd.mongodb.net/userwebbapp?retryWrites=true&w=majority';
-const port = process.env.PORT || 3000
 
 // post route
 app.post('/hello', (req, res) => {
