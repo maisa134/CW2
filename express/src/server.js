@@ -6,7 +6,7 @@ var MongoClient = require('mongodb').MongoClient;
 const app = express();
 app.use(express.json()); // parses the json object included in the request body
 var url='mongodb+srv://usertest09:Middlesexuni@cluster0.bcxqd.mongodb.net/userwebbapp?retryWrites=true&w=majority';
-
+const port = process.env.PORT || 3000;
 // post route
 app.post('/hello', (req, res) => {
     res.send(`Hello ${req.body.name}`);
