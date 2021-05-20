@@ -6,7 +6,6 @@ import { fileURLToPath } from 'url';
 
 const require = createRequire(import.meta.url);
 
-
 var MongoClient = require('mongodb').MongoClient;
 // create app object
 const app = express();
