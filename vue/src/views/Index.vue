@@ -161,7 +161,7 @@ export default {
             image: product.image
             })
         };
-        fetch("/lessons/update-lesson", options)
+        fetch("https://romaisea1378.herokuapp.com/lessons/update-lesson", options)
         .then(response => console.log(response))
       }
     }
