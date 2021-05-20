@@ -79,7 +79,7 @@ export default {
             spaces: product.spaces,
             })
         };
-        fetch("/orders", requestOptions)
+        fetch("https://romaisea1378.herokuapp.com/orders", requestOptions)
         .then(response => console.log(response))
         .then(data => console.log(data))
       }
