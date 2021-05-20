@@ -2,12 +2,16 @@
 import express from 'express';
 import { createRequire } from 'module';
 import path from 'path';
+import { fileURLToPath } from 'url';
 
 const require = createRequire(import.meta.url);
 
 var MongoClient = require('mongodb').MongoClient;
 // create app object
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 app.use(express.json()); // parses the json object included in the request body
 var url='mongodb+srv://usertest09:Middlesexuni@cluster0.bcxqd.mongodb.net/userwebbapp?retryWrites=true&w=majority';
 const port = process.env.PORT || 3000
