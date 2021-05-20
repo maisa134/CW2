@@ -6,6 +6,7 @@ import { fileURLToPath } from 'url';
 
 const require = createRequire(import.meta.url);
 
+
 var MongoClient = require('mongodb').MongoClient;
 // create app object
 const app = express();
@@ -17,6 +18,8 @@ app.post('/hello', (req, res) => {
     res.send(`Hello ${req.body.name}`);
 })
 
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 // serve the assets directory whenever a request is received on the /images router
 app.use('/images', express.static(path.join(__dirname, '../assets')));
 
