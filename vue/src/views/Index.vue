@@ -46,7 +46,7 @@ export default {
     }
   },
   async created() { 
-    const result = await fetch('/lessons')
+    const result = await fetch('https://romaisea1378.herokuapp.com/lessons')
           .then(response => response.json())
           .then(data => {
             console.log(data)
