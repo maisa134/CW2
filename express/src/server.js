@@ -12,6 +12,11 @@ app.post('/hello', (req, res) => {
     res.send(`Hello ${req.body.name}`);
 })
 
+// serve the assets directory whenever a request is received on the /images router
+app.use('/images', express.static(path.join(__dirname, '../assets')));
+
+
+
 app.get('/lessons', async (req, res) => {
     const client = await MongoClient.connect(url,
         { useNewUrlParser: true, useUnifiedTopology: true }
